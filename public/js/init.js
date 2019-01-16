@@ -13,18 +13,25 @@ window.onload = function () {
     'https://www.reddit.com/r/holdmybeer.json',
     'https://www.reddit.com/r/WTF.json'
   ]
+  let after = '';
+  let isRunning = false;
 
-  function request() {
+  function request(reqUrl) {
     let oReq = new XMLHttpRequest();
     oReq.addEventListener('load', reqListen);
-    oReq.open('GET', url);
+    oReq.open('GET', reqUrl);
     oReq.send();
+    after = '';
   }
 
   function reqListen() {
     let container = document.querySelector('.redditContainer');
-    container.innerHTML = '';
     let response = JSON.parse(this.responseText);
+    after = response.data.after;
+    console.log(after);
+    isRunning = false;
+
+
     let posts = response.data.children;
 
     posts.forEach(post => {
@@ -73,7 +80,7 @@ window.onload = function () {
       content.appendChild(preview);
     });
   }
-  request();
+  request(url);
 
   const random = document.getElementById('random');
   random.addEventListener('click', function (event) {
@@ -95,13 +102,32 @@ window.onload = function () {
   function changeUrl(e) {
     url = e.dataset.link;
     imgUrl = e.dataset.img;
-    request();
+    clearContainer();
+    request(url);
+  }
+
+  function clearContainer() {
+    let container = document.querySelector('.redditContainer');
+    container.innerHTML = '';
   }
 
   function randomReddit() {
     url = randomList[Math.floor(Math.random() * 10)];
     imgUrl = 'https://media.istockphoto.com/photos/question-mark-picture-id673273200?k=6&m=673273200&s=612x612&w=0&h=Fzzz4Z2RgY7HfRYd79WoLtoCY_ufU0gOy_ZfVFDWe7A=';
-    request();
+    clearContainer();
+    request(url);
   }
-
+  window.onscroll = yHandler;
+  function yHandler() {
+    let wrap = document.getElementById('wrap');
+    let contentHeight = wrap.offsetHeight;
+    let yOffset = window.pageYOffset;
+    let y = yOffset + window.innerHeight;
+    if (y >= contentHeight && !isRunning) {
+      isRunning = true;
+      let tempUrl = url.concat('?after=' + after);
+      console.log(tempUrl);
+      request(tempUrl);
+    }
+  }
 }
