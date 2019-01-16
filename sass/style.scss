@@ -1,0 +1,197 @@
+$fastenateGrey: #3C392A;
+$fastenateOrangeShadow: rgb(126, 69, 53);
+
+body {
+  background-image: url('/assets/bg.jpg');
+  margin:0;
+}
+header {
+  height:68px;
+  background-color:white;
+  margin:0;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 15px 5px white;
+}
+#headerBg{
+  background-image: url('/assets/header_bg.svg');
+  height:10px;
+  width:410px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
+}
+#headerLogo{
+  background-image: url('/assets/logo.svg');
+  height:60px;
+  width:120px;
+}
+#plus{
+  position: absolute;
+  background-image: url('/assets/plus.png');
+  height:32px;
+  width:32px;
+  left: 94vw;
+  top: 15px;
+}
+#plus:hover{
+  background-image: url('/assets/plus_hover.png');
+}
+.navBar{
+  height:48px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color:	$fastenateGrey;
+  box-shadow: inset 0px 10px 20px rgb(31, 29, 21),
+  0px 4px 5px $fastenateOrangeShadow;
+  .navLink{
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    color: grey;
+    padding: 3px;
+  }
+  .navBullet{
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    color: grey;
+    padding: 3px;
+  }
+  .navLink:hover{
+    color:#AC4325;
+  }
+}
+.content{
+  min-height: calc(100vh - 168px);
+  display: flex;
+  justify-content: center;
+}
+.redditContainer{
+  display:flex;
+  flex-flow: row wrap;
+  width:725px;
+  padding:16px;
+}
+.redditBox{
+  width:330px;
+  height:400px;
+  margin:16px;
+  background-color: white;
+  box-shadow: 0px -4px 5px $fastenateOrangeShadow, 
+  4px 0px 5px $fastenateOrangeShadow, 
+  -4px 0px 5px $fastenateOrangeShadow, 
+  0px 4px 5px $fastenateOrangeShadow;
+}
+.redditBox:hover{
+  box-shadow: 0px -4px 5px $fastenateOrangeShadow, 
+  4px 0px 5px $fastenateOrangeShadow, 
+  -4px 0px 5px $fastenateOrangeShadow, 
+  0px 4px 5px $fastenateOrangeShadow,
+  inset 0px 0px 0px 6px rgb(228, 95, 59);
+}
+.redditBox:hover .subject{
+  color: #AC4325;
+}
+.redditBoxContent{
+  margin:22px;
+  width:285px;
+  height:356px;
+  img{
+    margin-bottom: 8px;
+    width:285px;
+    height:175px;
+  }
+  a{
+    text-decoration: none;
+  }
+}
+.subject{
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+  text-decoration: none;
+  color: $fastenateGrey;
+  line-height: 27px;
+  max-height: 55px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.details{
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  color: grey;
+  line-height: 14px;
+  max-height: 28px;
+  max-width:285px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.preview{
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  position: relative;
+  color: $fastenateGrey;
+  line-height: 16px;
+  max-height: 16px*4;
+  max-width:285px;
+  overflow: hidden;
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em;
+}
+// /* create the ... */
+// .preview:before {
+//   /* points in the end */
+//   content: '...';
+//   /* absolute position */
+//   position: absolute;
+//   /* set position to right bottom corner of block */
+//   right: 0;
+//   bottom: 0;
+// }
+// /* hide ... if we have text, which is less than or equal to max lines */
+// .preview:after {
+//   /* points in the end */
+//   content: '';
+//   /* absolute position */
+//   position: absolute;
+//   /* set position to right bottom corner of text */
+//   right: 0;
+//   /* set width and height */
+//   width: 1em;
+//   height: 1em;
+//   margin-top: 0.2em;
+//   /* bg color = bg color under block */
+//   background: white;
+// }
+footer{
+  height:52px;
+  background-color:	$fastenateGrey;
+  box-shadow: 0px -4px 5px $fastenateOrangeShadow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#facebook{
+  background-image: url('/assets/facebook_grey.svg');
+  height:25px;
+  width:25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding:6px;
+}
+#facebook:hover{
+  background-image: url('/assets/facebook_orange.svg');
+}
+#instagram{
+  background-image: url('/assets/instagram_grey.svg');
+  height:25px;
+  width:25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding:6px;
+}
+#instagram:hover{
+  background-image: url('/assets/instagram_orange.svg');
+}

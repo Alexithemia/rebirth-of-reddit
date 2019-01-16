@@ -1,0 +1,155 @@
+body {
+  background-image: url("/assets/bg.jpg");
+  margin: 0; }
+
+header {
+  height: 68px;
+  background-color: white;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 15px 5px white; }
+
+#headerBg {
+  background-image: url("/assets/header_bg.svg");
+  height: 10px;
+  width: 410px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap; }
+
+#headerLogo {
+  background-image: url("/assets/logo.svg");
+  height: 60px;
+  width: 120px; }
+
+#plus {
+  position: absolute;
+  background-image: url("/assets/plus.png");
+  height: 32px;
+  width: 32px;
+  left: 94vw;
+  top: 15px; }
+
+#plus:hover {
+  background-image: url("/assets/plus_hover.png"); }
+
+.navBar {
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3C392A;
+  box-shadow: inset 0px 10px 20px #1f1d15, 0px 4px 5px #7e4535; }
+  .navBar .navLink {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    color: grey;
+    padding: 3px; }
+  .navBar .navBullet {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    color: grey;
+    padding: 3px; }
+  .navBar .navLink:hover {
+    color: #AC4325; }
+
+.content {
+  min-height: calc(100vh - 168px);
+  display: flex;
+  justify-content: center; }
+
+.redditContainer {
+  display: flex;
+  flex-flow: row wrap;
+  width: 725px;
+  padding: 16px; }
+
+.redditBox {
+  width: 330px;
+  height: 400px;
+  margin: 16px;
+  background-color: white;
+  box-shadow: 0px -4px 5px #7e4535, 4px 0px 5px #7e4535, -4px 0px 5px #7e4535, 0px 4px 5px #7e4535; }
+
+.redditBox:hover {
+  box-shadow: 0px -4px 5px #7e4535, 4px 0px 5px #7e4535, -4px 0px 5px #7e4535, 0px 4px 5px #7e4535, inset 0px 0px 0px 6px #e45f3b; }
+
+.redditBox:hover .subject {
+  color: #AC4325; }
+
+.redditBoxContent {
+  margin: 22px;
+  width: 285px;
+  height: 356px; }
+  .redditBoxContent img {
+    margin-bottom: 8px;
+    width: 285px;
+    height: 175px; }
+  .redditBoxContent a {
+    text-decoration: none; }
+
+.subject {
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+  text-decoration: none;
+  color: #3C392A;
+  line-height: 27px;
+  max-height: 55px;
+  overflow: hidden;
+  margin-bottom: 6px; }
+
+.details {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  color: grey;
+  line-height: 14px;
+  max-height: 28px;
+  max-width: 285px;
+  overflow: hidden;
+  margin-bottom: 16px; }
+
+.preview {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  position: relative;
+  color: #3C392A;
+  line-height: 16px;
+  max-height: 64px;
+  max-width: 285px;
+  overflow: hidden;
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em; }
+
+footer {
+  height: 52px;
+  background-color: #3C392A;
+  box-shadow: 0px -4px 5px #7e4535;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+#facebook {
+  background-image: url("/assets/facebook_grey.svg");
+  height: 25px;
+  width: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 6px; }
+
+#facebook:hover {
+  background-image: url("/assets/facebook_orange.svg"); }
+
+#instagram {
+  background-image: url("/assets/instagram_grey.svg");
+  height: 25px;
+  width: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 6px; }
+
+#instagram:hover {
+  background-image: url("/assets/instagram_orange.svg"); }
