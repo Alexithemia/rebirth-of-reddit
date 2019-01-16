@@ -63,6 +63,25 @@ header {
     color:#AC4325;
   }
 }
+.dropdownBox{
+  display: none;
+  position: absolute;
+  text-align:center;
+  width: 105px;
+  z-index: 1;
+  background-color: $fastenateGrey;
+}
+.dropOption{
+  color: grey;
+  font-size: 18px;
+  margin: 4px;
+}
+.dropOption:hover{
+  color:#AC4325
+}
+#myBoards:hover .dropdownBox {
+  display: block;
+}
 .content{
   min-height: calc(100vh - 168px);
   display: flex;

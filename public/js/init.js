@@ -11,6 +11,7 @@ window.onload = function () {
 
   function reqListen() {
     let container = document.querySelector('.redditContainer');
+    container.innerHTML = '';
     let response = JSON.parse(this.responseText);
     let posts = response.data.children;
     console.log(posts);
@@ -63,4 +64,24 @@ window.onload = function () {
     });
   }
   request();
+
+  const magic = document.getElementById('magic');
+  magic.addEventListener('click', function (event) {
+    changeUrl(event.target);
+  })
+  const cars = document.getElementById('cars');
+  cars.addEventListener('click', function (event) {
+    changeUrl(event.target);
+  })
+  const videoGames = document.getElementById('videoGames');
+  videoGames.addEventListener('click', function (event) {
+    changeUrl(event.target);
+  })
+
+  function changeUrl(e) {
+    url = e.dataset.link;
+    imgUrl = e.dataset.img;
+    request();
+  }
+
 }
