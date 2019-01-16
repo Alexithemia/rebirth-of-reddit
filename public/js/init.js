@@ -1,6 +1,18 @@
 window.onload = function () {
   let url = 'https://www.reddit.com/r/magicTCG.json';
   let imgUrl = 'https://media.wizards.com/2017/images/daily/41mztsnrdm.jpg';
+  const randomList = [
+    'https://www.reddit.com/r/funny.json',
+    'https://www.reddit.com/r/aww.json',
+    'https://www.reddit.com/r/dankmemes.json',
+    'https://www.reddit.com/r/cats.json',
+    'https://www.reddit.com/r/WildernessBackpacking.json',
+    'https://www.reddit.com/r/snowboarding.json',
+    'https://www.reddit.com/r/Overwatch.json',
+    'https://www.reddit.com/r/IdiotsInCars.json',
+    'https://www.reddit.com/r/holdmybeer.json',
+    'https://www.reddit.com/r/WTF.json'
+  ]
 
   function request() {
     let oReq = new XMLHttpRequest();
@@ -14,8 +26,6 @@ window.onload = function () {
     container.innerHTML = '';
     let response = JSON.parse(this.responseText);
     let posts = response.data.children;
-    console.log(posts);
-    console.log(container);
 
     posts.forEach(post => {
       postData = post.data;
@@ -65,6 +75,10 @@ window.onload = function () {
   }
   request();
 
+  const random = document.getElementById('random');
+  random.addEventListener('click', function (event) {
+    randomReddit();
+  })
   const magic = document.getElementById('magic');
   magic.addEventListener('click', function (event) {
     changeUrl(event.target);
@@ -81,6 +95,12 @@ window.onload = function () {
   function changeUrl(e) {
     url = e.dataset.link;
     imgUrl = e.dataset.img;
+    request();
+  }
+
+  function randomReddit() {
+    url = randomList[Math.floor(Math.random() * 10)];
+    imgUrl = 'https://media.istockphoto.com/photos/question-mark-picture-id673273200?k=6&m=673273200&s=612x612&w=0&h=Fzzz4Z2RgY7HfRYd79WoLtoCY_ufU0gOy_ZfVFDWe7A=';
     request();
   }
 

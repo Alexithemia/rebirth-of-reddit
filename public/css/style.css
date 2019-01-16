@@ -135,6 +135,7 @@ header {
   font-size: 14px;
   position: relative;
   color: #3C392A;
+  word-break: break-word;
   line-height: 16px;
   max-height: 64px;
   max-width: 285px;
@@ -172,3 +173,46 @@ footer {
 
 #instagram:hover {
   background-image: url("/assets/instagram_orange.svg"); }
+
+@media screen and (max-width: 755px) {
+  .preview {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  header {
+    justify-content: left; }
+  #headerBg {
+    background-image: none;
+    margin: 8px;
+    width: 120px; }
+  #plus {
+    left: 85vw; }
+  .redditContainer {
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px; }
+  .redditBox {
+    width: 380px;
+    margin: 4px; }
+  .redditBoxContent {
+    width: 335px; }
+    .redditBoxContent img {
+      width: 335px;
+      height: 200px; } }
+
+@media screen and (max-width: 410px) {
+  .redditBox {
+    width: 300px;
+    margin: 4px;
+    height: 350px; }
+  .redditBoxContent {
+    width: 260px; }
+    .redditBoxContent img {
+      width: 260px;
+      height: 150px; }
+  .redditContainer {
+    width: 310px;
+    padding: 0px; }
+  .navBar .navLink {
+    font-size: 20px; } }
