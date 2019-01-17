@@ -1,6 +1,7 @@
 window.onload = function () {
   let url = 'https://www.reddit.com/r/magicTCG.json';
   let imgUrl = 'https://media.wizards.com/2017/images/daily/41mztsnrdm.jpg';
+  let randomImgUrl = 'https://media.istockphoto.com/photos/question-mark-picture-id673273200?k=6&m=673273200&s=612x612&w=0&h=Fzzz4Z2RgY7HfRYd79WoLtoCY_ufU0gOy_ZfVFDWe7A=';
   const randomList = [
     'https://www.reddit.com/r/funny.json',
     'https://www.reddit.com/r/aww.json',
@@ -67,8 +68,8 @@ window.onload = function () {
       details.className = 'details';
       const time = moment(postData.created_utc * 1000).fromNow();
       details.innerHTML = 'by ' + postData.author + ' • ' + time + ' • ' + postData.ups + ' upvotes';
-
       content.appendChild(details);
+
       let preview = document.createElement('div');
       preview.className = 'preview';
       if (postData.selftext.length > 100) {
@@ -126,7 +127,7 @@ window.onload = function () {
   //random function pulls random url from list
   function randomReddit() {
     url = randomList[Math.floor(Math.random() * 10)];
-    imgUrl = 'https://media.istockphoto.com/photos/question-mark-picture-id673273200?k=6&m=673273200&s=612x612&w=0&h=Fzzz4Z2RgY7HfRYd79WoLtoCY_ufU0gOy_ZfVFDWe7A=';
+    imgUrl = randomImgUrl;
     clearContainer();
     request(url);
   }
@@ -156,7 +157,7 @@ window.onload = function () {
     input = document.getElementById('inputStr').value;
     url = 'https://www.reddit.com/search.json?q=' + input;
     searched = true;
-    imgUrl = 'https://media.istockphoto.com/photos/question-mark-picture-id673273200?k=6&m=673273200&s=612x612&w=0&h=Fzzz4Z2RgY7HfRYd79WoLtoCY_ufU0gOy_ZfVFDWe7A=';
+    imgUrl = randomImgUrl;
     clearContainer();
     request(url);
   }
