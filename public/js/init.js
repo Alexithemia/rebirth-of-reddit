@@ -17,6 +17,7 @@ window.onload = function () {
   let isRunning = false;
   let searched = false;
 
+  //request function
   function request(reqUrl) {
     let oReq = new XMLHttpRequest();
     oReq.addEventListener('load', reqListen);
@@ -25,16 +26,15 @@ window.onload = function () {
     after = '';
   }
 
+  //request listener parses and creates cards
   function reqListen() {
     let container = document.querySelector('.redditContainer');
     let response = JSON.parse(this.responseText);
     after = response.data.after;
-    console.log(after);
     isRunning = false;
-
-
     let posts = response.data.children;
 
+    //creates and populates card for each post
     posts.forEach(post => {
       postData = post.data;
       let box = document.createElement('div');
@@ -83,6 +83,7 @@ window.onload = function () {
   }
   request(url);
 
+  //listeners for buttons
   const random = document.getElementById('random');
   random.addEventListener('click', function (event) {
     randomReddit();
@@ -146,16 +147,14 @@ window.onload = function () {
       } else {
         tempUrl = url.concat('?after=' + after);
       }
-      console.log(tempUrl);
       request(tempUrl);
     }
   }
 
+  //appends search string to search url and runs a new request
   function searchReddit() {
     input = document.getElementById('inputStr').value;
-    console.log(input);
     url = 'https://www.reddit.com/search.json?q=' + input;
-    console.log(url);
     searched = true;
     imgUrl = 'https://media.istockphoto.com/photos/question-mark-picture-id673273200?k=6&m=673273200&s=612x612&w=0&h=Fzzz4Z2RgY7HfRYd79WoLtoCY_ufU0gOy_ZfVFDWe7A=';
     clearContainer();
