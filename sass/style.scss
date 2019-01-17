@@ -1,4 +1,5 @@
 $fastenateGrey: #3C392A;
+$fastenateOrange: #AC4325;
 $fastenateOrangeShadow: rgb(126, 69, 53);
 
 body {
@@ -39,6 +40,22 @@ header {
 #plus:hover{
   background-image: url('/assets/plus_hover.png');
 }
+.searchBox{
+  display: none;
+  position: absolute;
+  right:0px;
+  top:30px;
+  z-index: 1;
+  width: 200px;
+  height: 70px;
+  background-color: $fastenateOrange;
+  flex-flow: column nowrap;
+  justify-content: center;
+  box-shadow: 4px 4px 10px $fastenateGrey;
+}
+#plus:hover .searchBox{
+  display:flex;
+}
 .navBar{
   height:48px;
   display:flex;
@@ -60,8 +77,17 @@ header {
     padding: 3px;
   }
   .navLink:hover{
-    color:#AC4325;
+    color:$fastenateOrange;
   }
+}
+#random{
+  cursor: pointer;
+}
+#myBoards{
+  cursor:default;
+}
+#myBoards:hover .dropdownBox {
+  display: block;
 }
 .dropdownBox{
   display: none;
@@ -70,17 +96,48 @@ header {
   width: 105px;
   z-index: 1;
   background-color: $fastenateGrey;
+  box-shadow: 4px 4px 10px $fastenateGrey;
 }
 .dropOption{
+  cursor: pointer;
   color: grey;
   font-size: 18px;
   margin: 4px;
 }
 .dropOption:hover{
-  color:#AC4325
+  color:$fastenateOrange
 }
-#myBoards:hover .dropdownBox {
-  display: block;
+#getApp{
+  cursor:default;
+}
+#getApp:hover #appBox{
+  display: flex;
+}
+#appBox{
+  display: none;
+  position: absolute;
+  justify-content: center;
+  font-size: 14px;
+  color: grey;
+  width: 80px;
+  z-index: 1;
+  background-color: $fastenateGrey;
+  flex-flow: row wrap;
+  box-shadow: 4px 4px 10px $fastenateGrey;
+}
+#apple{
+  cursor: pointer;
+  img{
+    width:40px;
+    height:40px;
+  }
+}
+#android{
+  cursor: pointer;
+  img{
+    width:40px;
+    height:40px;
+  }
 }
 .content{
   min-height: calc(100vh - 168px);
@@ -111,7 +168,7 @@ header {
   inset 0px 0px 0px 6px rgb(228, 95, 59);
 }
 .redditBox:hover .subject{
-  color: #AC4325;
+  color: $fastenateOrange;
 }
 .redditBoxContent{
   margin:22px;
@@ -151,6 +208,7 @@ header {
   font-size: 14px;
   position: relative;
   color: $fastenateGrey;
+  word-break: break-word;
   line-height: 16px;
   max-height: 16px*4;
   max-width:285px;
@@ -159,31 +217,6 @@ header {
   margin-right: -1em;
   padding-right: 1em;
 }
-// /* create the ... */
-// .preview:before {
-//   /* points in the end */
-//   content: '...';
-//   /* absolute position */
-//   position: absolute;
-//   /* set position to right bottom corner of block */
-//   right: 0;
-//   bottom: 0;
-// }
-// /* hide ... if we have text, which is less than or equal to max lines */
-// .preview:after {
-//   /* points in the end */
-//   content: '';
-//   /* absolute position */
-//   position: absolute;
-//   /* set position to right bottom corner of text */
-//   right: 0;
-//   /* set width and height */
-//   width: 1em;
-//   height: 1em;
-//   margin-top: 0.2em;
-//   /* bg color = bg color under block */
-//   background: white;
-// }
 footer{
   height:52px;
   background-color:	$fastenateGrey;
@@ -213,4 +246,63 @@ footer{
 }
 #instagram:hover{
   background-image: url('/assets/instagram_orange.svg');
+}
+
+@media screen and (max-width: 755px){
+  .preview{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  header{
+    justify-content: left;
+  }
+  #headerBg{
+    background-image: none;
+    margin:8px;
+    width:120px;
+  }
+  #plus{
+    left: 85vw;
+  } 
+  .redditContainer{
+    flex-flow: column;
+    align-items:center;
+    justify-content: center;
+    padding:0px;
+  }
+  .redditBox{
+    width:380px;
+    margin: 4px;
+  }
+  .redditBoxContent{
+    width:335px;
+    img{
+      width:335px;
+      height:200px;
+    }
+  }
+}
+@media screen and (max-width: 410px){
+  .redditBox{
+    width:300px;
+    margin: 4px;
+    height: 350px;
+  }
+  .redditBoxContent{
+    width:260px;
+    img{
+      width:260px;
+      height:150px;
+    }
+  }
+  .redditContainer{
+    width:310px;
+    padding: 0px;
+  }
+  .navBar{
+    .navLink{
+      font-size: 20px;
+    }
+  }
 }

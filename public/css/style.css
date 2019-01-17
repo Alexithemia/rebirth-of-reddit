@@ -36,6 +36,22 @@ header {
 #plus:hover {
   background-image: url("/assets/plus_hover.png"); }
 
+.searchBox {
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 30px;
+  z-index: 1;
+  width: 200px;
+  height: 70px;
+  background-color: #AC4325;
+  flex-flow: column nowrap;
+  justify-content: center;
+  box-shadow: 4px 4px 10px #3C392A; }
+
+#plus:hover .searchBox {
+  display: flex; }
+
 .navBar {
   height: 48px;
   display: flex;
@@ -56,15 +72,26 @@ header {
   .navBar .navLink:hover {
     color: #AC4325; }
 
+#random {
+  cursor: pointer; }
+
+#myBoards {
+  cursor: default; }
+
+#myBoards:hover .dropdownBox {
+  display: block; }
+
 .dropdownBox {
   display: none;
   position: absolute;
   text-align: center;
   width: 105px;
   z-index: 1;
-  background-color: #3C392A; }
+  background-color: #3C392A;
+  box-shadow: 4px 4px 10px #3C392A; }
 
 .dropOption {
+  cursor: pointer;
   color: grey;
   font-size: 18px;
   margin: 4px; }
@@ -72,8 +99,35 @@ header {
 .dropOption:hover {
   color: #AC4325; }
 
-#myBoards:hover .dropdownBox {
-  display: block; }
+#getApp {
+  cursor: default; }
+
+#getApp:hover #appBox {
+  display: flex; }
+
+#appBox {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  font-size: 14px;
+  color: grey;
+  width: 80px;
+  z-index: 1;
+  background-color: #3C392A;
+  flex-flow: row wrap;
+  box-shadow: 4px 4px 10px #3C392A; }
+
+#apple {
+  cursor: pointer; }
+  #apple img {
+    width: 40px;
+    height: 40px; }
+
+#android {
+  cursor: pointer; }
+  #android img {
+    width: 40px;
+    height: 40px; }
 
 .content {
   min-height: calc(100vh - 168px);

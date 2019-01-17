@@ -15,6 +15,7 @@ window.onload = function () {
   ]
   let after = '';
   let isRunning = false;
+  let searched = false;
 
   function request(reqUrl) {
     let oReq = new XMLHttpRequest();
@@ -48,7 +49,7 @@ window.onload = function () {
       aImg.href = postData.url;
       let img = document.createElement('img');
       aImg.appendChild(img);
-      if (postData.thumbnail === 'self' || postData.thumbnail === 'default') {
+      if (postData.thumbnail === 'self' || postData.thumbnail === 'default' || postData.thumbnail === 'image') {
         img.src = imgUrl;
       } else {
         img.src = postData.thumbnail;
@@ -98,7 +99,16 @@ window.onload = function () {
   videoGames.addEventListener('click', function (event) {
     changeUrl(event.target);
   })
+  const getApp = document.getElementById('getApp');
+  getApp.addEventListener('click', function (event) {
+    showApp();
+  })
+  const search = document.getElementById('searchBtn');
+  search.addEventListener('click', function (event) {
+    searchReddit();
+  })
 
+  //changes url to match data of selected button
   function changeUrl(e) {
     url = e.dataset.link;
     imgUrl = e.dataset.img;
@@ -106,28 +116,49 @@ window.onload = function () {
     request(url);
   }
 
+  //clears current board from page
   function clearContainer() {
     let container = document.querySelector('.redditContainer');
     container.innerHTML = '';
   }
 
+  //random function pulls random url from list
   function randomReddit() {
     url = randomList[Math.floor(Math.random() * 10)];
     imgUrl = 'https://media.istockphoto.com/photos/question-mark-picture-id673273200?k=6&m=673273200&s=612x612&w=0&h=Fzzz4Z2RgY7HfRYd79WoLtoCY_ufU0gOy_ZfVFDWe7A=';
     clearContainer();
     request(url);
   }
+
+  //infinite scrolling listener and function
   window.onscroll = yHandler;
   function yHandler() {
     let wrap = document.getElementById('wrap');
     let contentHeight = wrap.offsetHeight;
     let yOffset = window.pageYOffset;
     let y = yOffset + window.innerHeight;
-    if (y >= contentHeight && !isRunning) {
+    if (y >= contentHeight && !isRunning && after) {
       isRunning = true;
-      let tempUrl = url.concat('?after=' + after);
+      let tempUrl;
+      if (searched) {
+        tempUrl = url.concat('&after=' + after);
+        searched = false;
+      } else {
+        tempUrl = url.concat('?after=' + after);
+      }
       console.log(tempUrl);
       request(tempUrl);
     }
+  }
+
+  function searchReddit() {
+    input = document.getElementById('inputStr').value;
+    console.log(input);
+    url = 'https://www.reddit.com/search.json?q=' + input;
+    console.log(url);
+    searched = true;
+    imgUrl = 'https://media.istockphoto.com/photos/question-mark-picture-id673273200?k=6&m=673273200&s=612x612&w=0&h=Fzzz4Z2RgY7HfRYd79WoLtoCY_ufU0gOy_ZfVFDWe7A=';
+    clearContainer();
+    request(url);
   }
 }
